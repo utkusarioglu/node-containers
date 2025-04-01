@@ -10,6 +10,7 @@ ARG APT_PACKAGES_SILENT
 ARG USER_ID=1000
 ARG GROUP_ID=1000
 ARG DEFAULT_USER=dev
+ARG YARN_CACHE_FOLDER=/home/dev/.yarn
 ARG HOME_ABSPATH=/home/${DEFAULT_USER}
 ARG BOOTSTAP_ABSPATH=${HOME_ABSPATH}/scripts/bootstrap
 
@@ -27,7 +28,11 @@ RUN ${BOOTSTAP_ABSPATH}/linux/install-apt.sh --no-check "${APT_PACKAGES_SILENT}"
 
 RUN ${BOOTSTAP_ABSPATH}/linux/install-apt.sh "${APT_PACKAGES}"
 
-RUN ${BOOTSTAP_ABSPATH}/node/install-nodejs.sh ${NODE_VERSION}
+RUN ${BOOTSTAP_ABSPATH}/node/install-nodejs.sh \
+  ${NODE_VERSION} \
+  ${USER_ID} \
+  ${GROUP_ID} \
+  ${YARN_CACHE_FOLDER}
 
 RUN ${BOOTSTAP_ABSPATH}/linux/clean-apt.sh
 

@@ -36,6 +36,7 @@ jobs:
             devcontainer_subfolder: src
             apt_packages: ""
             apt_packages_silent: ""
+            yarn_cache_folder: /home/dev/.yarn
 
     steps:
       - uses: actions/checkout@v4
@@ -55,6 +56,7 @@ jobs:
             NODE_VERSION=${{ matrix.images.node_version }}
             APT_PACKAGES=${{ matrix.images.apt_packages }}
             APT_PACKAGES_SILENT=${{ matrix.images.apt_packages_silent }}
+            YARN_CACHE_FOLDER=${{ martrix.images.yarn_cache_folder }}
           devcontainer_enabled: "false"
           devcontainer_subfolder: ${{ matrix.images.devcontainer_subfolder }}
           devcontainer_run_cmd_path: ${{ matrix.images.devcontainer_run_cmd_path }}

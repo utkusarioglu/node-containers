@@ -5,6 +5,9 @@ bash --version
 
 ARGS=(
   node_version
+  user_id
+  group_id
+  yarn_cache_folder
 )
 . /home/dev/scripts/utils/parse-args.sh
 
@@ -18,6 +21,9 @@ apt-get install -y nodejs
 
 node -v 
 corepack --version
+
+mkdir ${yarn_cache_folder}
+chown ${user_id}:${group_id} ${yarn_cache_folder}
 
 corepack enable yarn
 yarn set version stable

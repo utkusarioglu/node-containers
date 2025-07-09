@@ -32,6 +32,7 @@ jobs:
             docker_context: src
             dockerfile_path: src/node.dockerfile
             devcontainer_run_cmd_path: /home/dev/scripts/bootstrap/node/check-devcontainer.sh
+            dockerhub_repo_description_update: false
             dockerhub_repo_readme_file_path: src/DOCKER_README.md
             devcontainer_subfolder: src
             apt_packages: ""
@@ -60,5 +61,6 @@ jobs:
           devcontainer_enabled: "false"
           devcontainer_subfolder: ${{ matrix.images.devcontainer_subfolder }}
           devcontainer_run_cmd_path: ${{ matrix.images.devcontainer_run_cmd_path }}
+          dockerhub_repo_description_update: ${{ matrix.images.dockerhub_repo_description_update }}
           dockerhub_repo_short_description: NodeJS devcontainers
           dockerhub_repo_readme_file_path: ${{ matrix.images.dockerhub_repo_readme_file_path }}

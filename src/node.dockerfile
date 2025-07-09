@@ -22,6 +22,8 @@ COPY home/scripts/ scripts/
 
 RUN ls -alR ${HOME_ABSPATH}
 
+RUN ${BOOTSTAP_ABSPATH}/linux/clean-apt.sh
+
 RUN ${BOOTSTAP_ABSPATH}/linux/update-apt.sh
 
 RUN ${BOOTSTAP_ABSPATH}/linux/install-apt.sh --no-check "${APT_PACKAGES_SILENT}"

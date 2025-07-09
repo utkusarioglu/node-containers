@@ -19,7 +19,7 @@ rm -rf ${node_file}
 
 apt-get install -y nodejs
 
-node -v 
+node -v
 corepack --version
 
 mkdir ${yarn_cache_folder}
